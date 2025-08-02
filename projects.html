@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Projects</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <script defer src="js/main.js"></script>
+</head>
+<body>
+  <header>
+    <h1>My Projects</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="projects.html" class="active">Projects</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <button class="toggle-button" onclick="toggleDarkMode()">🌙</button>
+  </header>
+
+  <main>
+    <section class="project-section">
+      <div class="filter-buttons">
+        <button class="filter-btn" onclick="filterProjects('all')">All</button>
+        <button class="filter-btn" onclick="filterProjects('web')">Web</button>
+        <button class="filter-btn" onclick="filterProjects('uiux')">UI/UX</button>
+      </div>
+
+      <div id="project-gallery" class="project-grid">
+        <div class="project-card web fade-in-up">🌐 Project 1 (Web)</div>
+        <div class="project-card uiux fade-in-up delay-1">🎨 Project 2 (UI/UX)</div>
+        <div class="project-card web fade-in-up delay-2">📱 Project 3 (Web)</div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Arpit Jung Swar </p>
+  </footer>
+
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark-mode");
+    }
+
+    function filterProjects(category) {
+      const projects = document.querySelectorAll('.project-card');
+      projects.forEach(project => {
+        if (category === 'all' || project.classList.contains(category)) {
+          project.style.display = 'block';
+          project.classList.add('fade-in-up');
+        } else {
+          project.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html>
